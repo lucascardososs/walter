@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, orientation=landscape" />
+    <meta name="format-detection" content="telephone=no" />
+
+  <title>Carteirinha FGV</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .blue{
+      color: black !important
+    }
+
+    .card {
+      width: 90vw;
+      max-width: 900px;
+      height: auto;
+      display: flex;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      flex-direction: row;
+      border-radius: 8px;
+    }
+
+    .left {
+      width: 60%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .left .icon {
+      width: 60px;
+      height: 60px;
+        border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+
+    .left .info {
+      font-size: 14px;
+    }
+
+    .right {
+      width: 40%;
+      background: #0a3c73;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .right img {
+      width: 60%;
+      max-width: 160px;
+    }
+
+    .right a {
+      margin-top: 10px;
+      font-size: 12px;
+      color: white;
+      text-decoration: none;
+    }
+
+    @media screen and (orientation: portrait) {
+      .card {
+        flex-direction: column;
+        height: auto;
+      }
+      .right {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <img class="icon" src="./foto.jpeg" alt="">
+      <p><strong>UNIDADE:</strong> SP</p>
+      <p class="blue"><strong>MATRÍCULA:</strong> 03579156</p>
+      <p><strong>ACESSO:</strong> 74661</p>
+      <p><strong>VALIDADE:</strong> 31/03/2026</p>
+      <p><strong>CPF:</strong> 298.770.258-25</p>
+      <br />
+      <p><strong>NOME:</strong> Walter Gonçalves Bakaleiko</p>
+      <p><strong>CURSO:</strong> Publicidade e Propaganda</p>
+      <br />
+      <p class="info" id="dataAtual"></p>
+    </div>
+    <div class="right">
+      <img src="./carteira.png" alt="">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://carteirinha.fgv.br" alt="QR Code">
+      <a href="https://carteirinha.fgv.br" target="_blank">https://carteirinha.fgv.br</a>
+    </div>
+  </div>
+
+  <script>
+    const data = new Date();
+    const dataFormatada = data.toLocaleString('pt-BR');
+    document.getElementById('dataAtual').textContent = dataFormatada;
+  </script>
+</body>
+</html>
